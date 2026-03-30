@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://docs.google.com/spreadsheets/d/1BOfAw18vXVRUstmMdvZN8Wb4ULbiSh0L8Rf16ec-2HU/gviz/tq?tqx=out:json&sheet=apps\")",
+      "Bash(curl -s \"https://docs.google.com/spreadsheets/d/1BOfAw18vXVRUstmMdvZN8Wb4ULbiSh0L8Rf16ec-2HU/gviz/tq?tqx=out:json&sheet=apps\")"
+    ]
+  }
+}
