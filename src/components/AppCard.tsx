@@ -1,21 +1,5 @@
 import type { AppEntry } from '../types';
 
-// カテゴリバッジの色パレット
-const BADGE_COLORS = [
-  'bg-blue-900 text-blue-300',
-  'bg-green-900 text-green-300',
-  'bg-purple-900 text-purple-300',
-  'bg-orange-900 text-orange-300',
-  'bg-pink-900 text-pink-300',
-  'bg-teal-900 text-teal-300',
-];
-
-// カテゴリ名の文字コード合計からインデックスを決定
-function getBadgeColor(category: string): string {
-  const charSum = Array.from(category).reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
-  return BADGE_COLORS[charSum % BADGE_COLORS.length];
-}
-
 interface AppCardProps {
   app: AppEntry;
 }
