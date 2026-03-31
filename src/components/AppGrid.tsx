@@ -33,10 +33,26 @@ export function AppGrid({ apps, loading, error, selectedCategory }: AppGridProps
     return <p className="text-gray-500 text-center py-10">アプリが見つかりません</p>;
   }
 
+  // カテゴリ順を維持しつつグループ化
+  const categories = Array.from(new Set(filtered.map((app) => app.category)));
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-      {filtered.map((app) => (
-        <AppCard key={app.url} app={app} />
+    <div className="flex flex-col gap-8">
+      {categories.map((category) => (
+        <section key={category}>
+          {/* カテゴリタイトル */}
+          <h2 className="text-gray-400 text-sm font-semibold uppercase tracking-widest mb-3 border-b border-gray-800 pb-2">
+            {category}
+          </h2>
+          {/* アプリカードグリッド */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3">
+            {filtered
+              .filter((app) => app.category === category)
+              .map((app) => (
+                <AppCard key={app.url} app={app} />
+              ))}
+          </div>
+        </section>
       ))}
     </div>
   );
